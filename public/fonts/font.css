@@ -1,0 +1,47 @@
+@font-face {
+	font-family: YekanBakh-Light;
+	font-style: normal;
+	font-weight: 300;
+	src: url('woff/YekanBakhFaNum-Light.woff') format('woff'),   
+	url('woff2/YekanBakhFaNum-Light.woff2') format('woff2');	
+}
+
+@font-face {
+	font-family: YekanBakh-Regular;
+	font-style: normal;
+	font-weight: normal;
+	src: url('woff/YekanBakhFaNum-Regular.woff') format('woff'),   
+	url('woff2/YekanBakhFaNum-Regular.woff2') format('woff2');		 
+}
+
+@font-face {
+	font-family: YekanBakh-SemiBold;
+	font-style: normal;
+	font-weight: 600;
+	src: url('woff/YekanBakhFaNum-SemiBold.woff') format('woff'),   
+	url('woff2/YekanBakhFaNum-SemiBold.woff2') format('woff2');		 
+}
+
+@font-face {
+	font-family: YekanBakh-Bold;
+	font-style: normal;
+	font-weight: bold;
+	src: url('woff/YekanBakhFaNum-Bold.woff') format('woff'),   
+	url('woff2/YekanBakhFaNum-Bold.woff2') format('woff2'); 
+}
+
+@font-face {
+	font-family: YekanBakh-ExtraBold;
+	font-style: normal;
+	font-weight: 800;
+	src: url('woff/YekanBakhFaNum-ExtraBold.woff') format('woff'),   
+	url('woff2/YekanBakhFaNum-ExtraBold.woff2') format('woff2');		 
+}
+
+@font-face {
+	font-family: YekanBakh-ExtraBlack;
+	font-style: normal;
+	font-weight: 950;
+	src: url('woff/YekanBakhFaNum-ExtraBlack.woff') format('woff'),   
+	url('woff2/YekanBakhFaNum-ExtraBlack.woff2') format('woff2');		 
+}
