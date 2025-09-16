@@ -23,5 +23,4 @@ class Category extends Model
         return LogOptions::defaults()
         ->logOnly(['parent_id','name', 'slug', 'thumbnail', 'description']);
     }
-
 }
