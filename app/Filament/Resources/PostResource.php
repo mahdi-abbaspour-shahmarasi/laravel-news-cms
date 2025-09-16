@@ -48,7 +48,11 @@ class PostResource extends Resource
                 Forms\Components\Toggle::make('is_published')
                     ->required(),
                 Forms\Components\Toggle::make('allow_comments')
-                    ->required(),                
+                    ->required(),  
+                Forms\Components\Select::make('category_id')
+                    ->multiple()
+                    ->preload()
+                    ->relationship('categories', 'name'),              
                 Forms\Components\Select::make('user_id')
                     ->relationship('user', 'name')
                     ->required(),
