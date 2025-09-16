@@ -19,8 +19,8 @@ class PostResource extends Resource
     
     protected static ?string $navigationIcon = 'heroicon-o-document-text';    
     protected static ?string $navigationGroup = 'محتوا';    
-    protected static ?string $modelLabel = 'پست';    
-    protected static ?string $pluralModelLabel = 'پست ها';
+    protected static ?string $modelLabel = 'خبر';    
+    protected static ?string $pluralModelLabel = 'خبر ها';
 
     public static function form(Form $form): Form
     {
@@ -62,7 +62,8 @@ class PostResource extends Resource
     public static function table(Table $table): Table
     {
         return $table
-            ->columns([                
+            ->columns([  
+                Tables\Columns\ImageColumn::make('thumbnail'),          
                 Tables\Columns\TextColumn::make('titr')
                     ->searchable(),                
                 Tables\Columns\TextColumn::make('view_count')

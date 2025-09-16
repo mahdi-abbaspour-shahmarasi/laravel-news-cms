@@ -12,6 +12,18 @@ class Post extends Model
     use LogsActivity;
 
     protected $fillable=['on_titr', 'titr', 'lead', 'remote_thumbnail', 'local_thumbnail', 'text', 'view_count', 'is_published', 'allow_comments', 'tags', 'user_id'];
+    
+    protected $appends = [
+        'thumbnail',
+    ];
+
+    public function getThumbnailAttribute()
+    { 
+        if($this->remote_thumbnail!='')       
+            return $this->remote_thumbnail;
+        else
+            return $this->local_thumbnail;
+    }
 
     public function user():BelongsTo
     {

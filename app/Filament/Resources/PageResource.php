@@ -52,7 +52,7 @@ class PageResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('thumbnail'),
+                Tables\Columns\ImageColumn::make('thumbnail'),
                 Tables\Columns\TextColumn::make('name')
                     ->searchable(),                                                   
                 Tables\Columns\TextColumn::make('view_count')
