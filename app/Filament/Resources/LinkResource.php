@@ -40,7 +40,11 @@ class LinkResource extends Resource
                     ->options([
                         '_self' => '_self',
                         '_blank' => '_blank',
-                    ]),                 
+                    ]), 
+                Forms\Components\Select::make('position_id')
+                    ->multiple()
+                    ->preload()
+                    ->relationship('positions', 'name'),                
                 Forms\Components\Toggle::make('is_published')
                     ->required(),
             ]);

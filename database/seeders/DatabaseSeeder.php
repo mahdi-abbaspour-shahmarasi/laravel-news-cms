@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
             PageSeeder::class,
             PositionSeeder::class,
             LinkSeeder::class,
+            LinkPositionSeeder::class,
         ]);
     }
 }
