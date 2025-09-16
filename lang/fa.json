@@ -65,6 +65,12 @@
     "Post addr":"آدرس پستی",
     "Order status":"وضعیت سفارش",
     "Pdf":"پی دی اف",
-    "Allow comments":"ارسال نظر"
+    "Allow comments":"ارسال نظر",
+    "On titr":"رو تیتر",
+    "Titr":"تیتر",
+    "Lead":"لید",
+    "Remote thumbnail":"تصویر شاخص",
+    "Local thumbnail":"تصویر محلی",
+    "Tags":"تگ ها"
 
 }
