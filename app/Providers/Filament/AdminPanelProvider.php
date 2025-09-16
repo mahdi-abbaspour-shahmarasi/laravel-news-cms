@@ -77,7 +77,10 @@ class AdminPanelProvider extends PanelProvider
             )
             ->plugin(FilamentSpatieRolesPermissionsPlugin::make())
             ->plugins([ActivitylogPlugin::make(),])           
-            ->navigationGroups([  
+            ->navigationGroups([ 
+                NavigationGroup::make()
+                    ->label('محتوا')
+                    ->icon('heroicon-o-pencil-square'),    
                 NavigationGroup::make()
                     ->label('کاربران سیستم')
                     ->icon('heroicon-o-users'),   
