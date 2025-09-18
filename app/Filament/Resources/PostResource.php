@@ -13,6 +13,7 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use AmidEsfahani\FilamentTinyEditor\TinyEditor;
+use CodeWithDennis\FilamentSelectTree\SelectTree;
 
 class PostResource extends Resource
 {
@@ -51,10 +52,11 @@ class PostResource extends Resource
                     ->required(),
                 Forms\Components\Toggle::make('allow_comments')
                     ->required(),  
-                Forms\Components\Select::make('category_id')
-                    ->multiple()
-                    ->preload()
-                    ->relationship('categories', 'name'),              
+                SelectTree::make('category_id')
+                    ->withCount()
+                    ->searchable()
+                    ->enableBranchNode()
+                    ->relationship('categories', 'name', 'parent_id'),             
                 Forms\Components\Select::make('user_id')
                     ->relationship('user', 'name')
                     ->required(),
