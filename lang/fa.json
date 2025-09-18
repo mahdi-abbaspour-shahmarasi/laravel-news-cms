@@ -72,6 +72,9 @@
     "Remote thumbnail":"تصویر شاخص",
     "Local thumbnail":"تصویر محلی",
     "Tags":"تگ ها",
-    "Category id":"دسته بندی"
+    "Category id":"دسته بندی",
+    "Parameters":"پارامترها",
+    "User id":"کاربر",
+    "User agent":"ایجنت کاربر"
 
 }
