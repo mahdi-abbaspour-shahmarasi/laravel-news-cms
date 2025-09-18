@@ -5,5 +5,4 @@
     سی ام اس رایگان ویژه پایگاه ها و سایت های خبری
     </p>
 </div>
-![screenshot](images/screenshot.png)
 ## About Laravel-News-CMS
