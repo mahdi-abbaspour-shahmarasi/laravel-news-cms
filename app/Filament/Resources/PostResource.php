@@ -12,6 +12,7 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use AmidEsfahani\FilamentTinyEditor\TinyEditor;
 
 class PostResource extends Resource
 {
@@ -41,8 +42,9 @@ class PostResource extends Resource
                     ->image()
                     ->imageEditor()
                     ->default(null),
-                Forms\Components\RichEditor::make('text')
-                    ->columnSpanFull(),  
+                TinyEditor::make('text')
+                    ->rtl()
+                    ->columnSpanFull(),   
                 Forms\Components\Textarea::make('tags')
                     ->columnSpanFull(),              
                 Forms\Components\Toggle::make('is_published')
