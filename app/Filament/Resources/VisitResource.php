@@ -29,15 +29,15 @@ class VisitResource extends Resource
                     ->required()
                     ->maxLength(255),
                 Forms\Components\TextInput::make('url')
-                    ->required()
-                    ->columnSpanFull(),
+                    ->required(),
                 Forms\Components\Textarea::make('parameters')
+                    ->columnSpanFull(),
+                Forms\Components\Textarea::make('user_agent')
                     ->columnSpanFull(),
                 Forms\Components\TextInput::make('user_id')
                     ->numeric()
                     ->default(null),
-                Forms\Components\Textarea::make('user_agent')
-                    ->columnSpanFull(),
+                
             ]);
     }
 
@@ -47,11 +47,20 @@ class VisitResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('ip_address')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('user_id')
+                Tables\Columns\TextColumn::make('url')
+                    ->limit(50)
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('browser')
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('platform')
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('device')
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('user')
                     ->numeric()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('created_at')
-                    ->dateTime()
+                    ->jalaliDate()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('updated_at')
