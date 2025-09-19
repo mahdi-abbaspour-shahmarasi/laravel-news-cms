@@ -24,6 +24,7 @@ class DatabaseSeeder extends Seeder
             PostSeeder::class,
             CategoryPostSeeder::class,
             CommentSeeder::class,
+            PropertySeeder::class,
         ]);
     }
 }
