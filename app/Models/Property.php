@@ -11,12 +11,7 @@ class Property extends Model
 {
     use LogsActivity;
 
-    protected $fillable=['name', 'thumbnail', 'description'];
-
-    public function parent():BelongsTo
-    {
-        return $this->belongsTo(Category::class);
-    }
+    protected $fillable=['name', 'thumbnail', 'description'];   
 
     public function getActivitylogOptions(): LogOptions
     {
