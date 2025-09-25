@@ -5,13 +5,13 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Spatie\Activitylog\Traits\LogsActivity;
 use Spatie\Activitylog\LogOptions;
-class CategoryPost extends Model
+class PostProperty extends Model
 {
     use LogsActivity;
 
-    protected $fillable=['category_id', 'post_id'];
-    protected $tablename='post_property';
-    public function category():BelongsTo
+    protected $fillable=['property_id', 'post_id', 'value'];
+
+    public function property():BelongsTo
     {
         return $this->belongsTo(Category::class);
     }
@@ -24,6 +24,6 @@ class CategoryPost extends Model
     public function getActivitylogOptions(): LogOptions
     {
         return LogOptions::defaults()
-        ->logOnly(['category_id', 'post_id']);
+        ->logOnly(['property_id', 'post_id',  'value']);
     }
 }

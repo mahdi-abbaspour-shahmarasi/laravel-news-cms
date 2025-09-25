@@ -56,7 +56,7 @@ class PostResource extends Resource
                     ->withCount()
                     ->searchable()
                     ->enableBranchNode()
-                    ->relationship('categories', 'name', 'parent_id'),             
+                    ->relationship('categories', 'name', 'parent_id'),                             
                 Forms\Components\Select::make('user_id')
                     ->relationship('user', 'name')
                     ->required(),

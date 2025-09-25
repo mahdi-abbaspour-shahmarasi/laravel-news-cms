@@ -35,6 +35,11 @@ class Post extends Model
         return $this->belongsToMany(Category::class);
     }
 
+    public function properties():BelongsToMany
+    {
+        return $this->belongsToMany(Property::class);
+    }
+
     public function getActivitylogOptions(): LogOptions
     {
         return LogOptions::defaults()
