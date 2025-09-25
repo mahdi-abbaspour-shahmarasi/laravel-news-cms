@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Spatie\Activitylog\Traits\LogsActivity;
 use Spatie\Activitylog\LogOptions;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Post extends Model
 {
@@ -33,6 +34,11 @@ class Post extends Model
     public function categories():BelongsToMany
     {
         return $this->belongsToMany(Category::class);
+    }
+
+    public function details():HasMany
+    {
+        return $this->hasMany(Detail::class);
     }
    
 
