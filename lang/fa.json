@@ -78,6 +78,10 @@
     "User agent":"ایجنت کاربر",
     "property":"ویژگی",
     "Property":"ویژگی",
-    "Details":"جزییات"
+    "Details":"جزییات",
+    "Source name":"عنوان منبع",
+    "source_url":"آدرس منبع",
+    "auther":"نویسنده",
+    "Auther name":"نویسنده"
 
 }

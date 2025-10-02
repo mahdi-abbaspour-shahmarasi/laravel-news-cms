@@ -12,10 +12,11 @@ class Post extends Model
 {
     use LogsActivity;
 
-    protected $fillable=['on_titr', 'titr', 'lead', 'remote_thumbnail', 'local_thumbnail', 'text', 'view_count', 'is_published', 'allow_comments', 'tags', 'user_id'];
+    protected $fillable=['on_titr', 'titr', 'lead', 'remote_thumbnail', 'local_thumbnail', 'text', 'view_count', 'is_published', 'allow_comments', 'tags', 'user_id', 'source_name', 'source_url', 'auther'];
     
     protected $appends = [
         'thumbnail',
+        'auther_name'
     ];
 
     public function getThumbnailAttribute()
@@ -40,11 +41,23 @@ class Post extends Model
     {
         return $this->hasMany(Detail::class);
     }
+
+    public function getAutherNameAttribute()
+    {
+        if($this->auther!="")
+        {
+            return $this->auther;
+        }
+        else
+        {
+            return $this->user->name;
+        }
+    }
    
 
     public function getActivitylogOptions(): LogOptions
     {
         return LogOptions::defaults()
-        ->logOnly(['on_titr', 'titr', 'lead', 'remote_thumbnail', 'local_thumbnail', 'text', 'view_count', 'is_published', 'allow_comments', 'tags', 'user_id']);
+        ->logOnly(['on_titr', 'titr', 'lead', 'remote_thumbnail', 'local_thumbnail', 'text', 'view_count', 'is_published', 'allow_comments', 'tags', 'user_id', 'source_name', 'source_url', 'auther']);
     }
 }

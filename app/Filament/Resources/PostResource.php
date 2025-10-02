@@ -60,6 +60,15 @@ class PostResource extends Resource
                 Forms\Components\Select::make('user_id')
                     ->relationship('user', 'name')
                     ->required(),
+                Forms\Components\TextInput::make('source_name')
+                    ->maxLength(255)
+                    ->default(null),
+                Forms\Components\TextInput::make('source_url')
+                    ->maxLength(255)
+                    ->default(null),
+                Forms\Components\TextInput::make('auther')
+                    ->maxLength(255)
+                    ->default(null),
             ]);
     }
 
@@ -77,7 +86,7 @@ class PostResource extends Resource
                     ->boolean(),
                 Tables\Columns\IconColumn::make('allow_comments')
                     ->boolean(),
-                Tables\Columns\TextColumn::make('user.name')
+                Tables\Columns\TextColumn::make('auther_name')
                     ->numeric()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('created_at')

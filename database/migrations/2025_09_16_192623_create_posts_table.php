@@ -24,6 +24,9 @@ return new class extends Migration
             $table->boolean('allow_comments')->default(false);                        
             $table->text('tags')->nullable();
             $table->foreignId('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->string('source_name')->nullable();
+            $table->string('source_url')->nullable();
+            $table->string('auther')->nullable();
             $table->timestamps();
         });
     }
