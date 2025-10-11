@@ -1,15 +1,17 @@
 <?php
 
 namespace App\Filament\Pages;
+use BezhanSalleh\FilamentShield\Traits\HasPageShield;
 use Filament\Forms\Components\TextInput;
 use Filament\Pages\Page;
 use Illuminate\Validation\ValidationException;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 use App\Filament\Widgets\StatsOverviewWidget;
-
 class ChangePassword extends Page
 {
+
+    use HasPageShield;
     protected static ?string $navigationIcon = 'heroicon-o-shield-check';
 
     protected static string $view = 'filament.pages.change-password';

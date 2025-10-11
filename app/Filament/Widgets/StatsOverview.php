@@ -2,14 +2,18 @@
 
 namespace App\Filament\Widgets;
 
+use BezhanSalleh\FilamentShield\Traits\HasWidgetShield;
 use Filament\Widgets\StatsOverviewWidget as BaseWidget;
 use Filament\Widgets\StatsOverviewWidget\Stat;
 use App\Models\Visit;
 use App\Models\Post;
 use Illuminate\Support\Carbon;
 
+
 class StatsOverview extends BaseWidget
 {
+
+    use HasWidgetShield;
     protected static ?int $sort = 1;
     protected function getStats(): array
     {
@@ -23,12 +27,13 @@ class StatsOverview extends BaseWidget
         $today_news=Post::where('created_at', '>=', Carbon::today())->count();
         return [
             Stat::make('مجموع اخبار منتشر شده', $all_news)
-                ->description($today_news.' منتشر شده امروز '),                
+                ->description($today_news.' منتشر شده امروز '),
             Stat::make('مجموع بازدید', $all_visits_count)
                 ->description($all_visitors_count.' بازدید کننده'),
             Stat::make('بازدید های امروز', $today_visits_count)
                 ->description($today_visitors_count.' بازدید کننده'),
-            
+
         ];
     }
+
 }

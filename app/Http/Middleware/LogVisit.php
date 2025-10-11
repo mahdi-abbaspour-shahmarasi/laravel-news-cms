@@ -18,9 +18,9 @@ class LogVisit
     public function handle(Request $request, Closure $next): Response
     {
         $user_id=null;
-        if (Auth::user()) 
-        {   
-            $user_id= Auth::user()->id;   
+        if (Auth::user())
+        {
+            $user_id= Auth::user()->id;
         }
         if(!Str::contains($request->url,'admin'))
         {

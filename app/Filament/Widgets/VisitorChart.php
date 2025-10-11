@@ -2,11 +2,14 @@
 
 namespace App\Filament\Widgets;
 
+use BezhanSalleh\FilamentShield\Traits\HasWidgetShield;
 use Filament\Widgets\ChartWidget;
 use App\Models\Visit;
 use Illuminate\Support\Carbon;
 class VisitorChart extends ChartWidget
 {
+
+    use HasWidgetShield;
     protected static ?string $heading = 'بازدیدکننده هفتگی';
     protected static ?int $sort = 2;
 
@@ -50,4 +53,8 @@ class VisitorChart extends ChartWidget
     {
         return 'line';
     }
+    // public static function canView(): bool
+    // {
+    //     return auth()->user()?->can('view stats overview widget') ?? false;
+    // }
 }

@@ -18,7 +18,7 @@ class UserResource extends Resource
     protected static ?string $model = User::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-users';
-    protected static ?string $navigationGroup = 'کاربران سیستم';
+    protected static ?string $navigationGroup = 'دسترسی و کاربران سیستم';
     protected static ?string $modelLabel = 'کاربر';
     protected static ?string $pluralModelLabel = 'کاربران';
 
@@ -51,22 +51,24 @@ class UserResource extends Resource
                     ->required()
                     ->maxLength(255),
                 Forms\Components\Select::make('roles')
-                    ->multiple()
-                    ->relationship('roles', 'name'),
-            ]);
+                    ->multiple()                  // چند رول انتخاب بشه
+                    ->relationship('roles', 'name') // ارتباط با مدل Role
+                    ->preload()
+                    ->searchable()
+                            ]);
     }
 
     public static function table(Table $table): Table
     {
         return $table
-            ->columns([                
-                Tables\Columns\ImageColumn::make('avatar'), 
+            ->columns([
+                Tables\Columns\ImageColumn::make('avatar'),
                 Tables\Columns\TextColumn::make('name')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('email')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('phone')
-                    ->searchable(),                                    
+                    ->searchable(),
                 Tables\Columns\IconColumn::make('is_active')
                     ->boolean(),
                 Tables\Columns\TextColumn::make('email_verified_at')
