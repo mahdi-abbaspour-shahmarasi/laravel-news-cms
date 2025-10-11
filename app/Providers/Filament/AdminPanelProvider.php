@@ -100,5 +100,6 @@ class AdminPanelProvider extends PanelProvider
                     ->url(fn (): string =>  Profile::getUrl())
                     ->icon('heroicon-o-user'),
             ]);
+
     }
 }

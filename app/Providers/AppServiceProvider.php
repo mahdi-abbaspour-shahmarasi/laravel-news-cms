@@ -7,10 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 use Filament\Tables\Table;
 
 use Filament\Forms\Components\Field;
+use Illuminate\Support\Facades\Gate;
+use Spatie\Activitylog\Models\Activity;
+use App\Policies\ActivitylogPolicy;
 use Filament\Forms\Components\Placeholder;
 use Filament\Tables\Columns\Column;
 use Filament\Tables\Filters\BaseFilter;
-use Illuminate\Support\Facades\Gate;
 
 
 class AppServiceProvider extends ServiceProvider
@@ -39,7 +41,8 @@ class AppServiceProvider extends ServiceProvider
 
         Gate::before(function ($user, $ability) {
             return $user->hasRole('Super Admin') ? true : null;
-        });        
+        });
+        Gate::policy(Activity::class, ActivitylogPolicy::class);
     }
 
     /**برای ترجمه اتپماتیک به فارسی لیبل ها در جداول و فرم ها */
@@ -61,5 +64,5 @@ class AppServiceProvider extends ServiceProvider
             });
         }
     }
-    
+
 }

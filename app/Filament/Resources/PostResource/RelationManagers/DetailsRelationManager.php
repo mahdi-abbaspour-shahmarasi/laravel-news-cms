@@ -14,19 +14,19 @@ use App\Models\Property;
 class DetailsRelationManager extends RelationManager
 {
     protected static string $relationship = 'details';
-    protected static ?string $modelLabel = 'جزییات'; 
+    protected static ?string $modelLabel = 'جزییات';
     protected static ?string $pluralModelLabel = 'جزییات';
     public function form(Form $form): Form
     {
         return $form
             ->schema([
-                Forms\Components\Select::make('property_id')                    
+                Forms\Components\Select::make('property_id')
                     ->relationship('property', 'name')
                     ->preload()
                     ->createOptionForm([
                         Forms\Components\TextInput::make('name')
-                            ->required(),                       
-                    ]),                
+                            ->required(),
+                    ]),
                 Forms\Components\TextInput::make('value')
                     ->required()
                     ->maxLength(255),
