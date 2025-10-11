@@ -2,6 +2,7 @@
 
 namespace App\Filament\Pages;
 
+use BezhanSalleh\FilamentShield\Traits\HasPageShield;
 use Filament\Pages\Page;
 use Filament\Forms;
 use Illuminate\Support\Facades\Hash;
@@ -11,6 +12,8 @@ use Illuminate\Support\Facades\Auth;
 use Filament\Forms\Components\TextInput;
 class Profile extends Page
 {
+
+    use HasPageShield;
     protected static ?string $navigationIcon = 'heroicon-o-user-circle';
     /*عنوان گروه منو در نویگیشن*/
     protected static ?string $navigationGroup = 'تنظیمات';

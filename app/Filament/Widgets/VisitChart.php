@@ -2,11 +2,14 @@
 
 namespace App\Filament\Widgets;
 
+use BezhanSalleh\FilamentShield\Traits\HasWidgetShield;
 use Filament\Widgets\ChartWidget;
 use App\Models\Visit;
 use Illuminate\Support\Carbon;
 class VisitChart extends ChartWidget
 {
+
+    use HasWidgetShield;
     protected static ?string $heading = 'بازدید هفتگی';
     protected static ?int $sort = 2;
 
