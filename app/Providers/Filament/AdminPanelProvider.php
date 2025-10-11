@@ -5,6 +5,7 @@ namespace App\Providers\Filament;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\AuthenticateSession;
 use Filament\Http\Middleware\DisableBladeIconComponents;
+use BezhanSalleh\FilamentShield\FilamentShieldPlugin;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
 use Filament\Pages;
 use Filament\Panel;
@@ -17,9 +18,6 @@ use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
 use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
-
-
-use Althinect\FilamentSpatieRolesPermissions\FilamentSpatieRolesPermissionsPlugin;
 use Rmsramos\Activitylog\ActivitylogPlugin;
 use Filament\Navigation\MenuItem;
 use App\Filament\Pages\Profile;
@@ -36,7 +34,7 @@ class AdminPanelProvider extends PanelProvider
             ->default()
             ->id('admin')
             ->path('admin')
-            ->login()            
+            ->login()
             ->colors([
                 'primary' => Color::Amber,
             ])
@@ -75,26 +73,27 @@ class AdminPanelProvider extends PanelProvider
                 url: asset('fonts/font.css'),
                 provider: LocalFontProvider::class,
             )
-            ->plugin(FilamentSpatieRolesPermissionsPlugin::make())
-            ->plugins([ActivitylogPlugin::make(),])           
-            ->navigationGroups([ 
+            // ->plugin(FilamentSpatieRolesPermissionsPlugin::make())
+            ->plugin(FilamentShieldPlugin::make())
+            ->plugins([ActivitylogPlugin::make(),])
+            ->navigationGroups([
                 NavigationGroup::make()
                     ->label('محتوا')
-                    ->icon('heroicon-o-pencil-square'),    
+                    ->icon('heroicon-o-pencil-square'),
                 NavigationGroup::make()
-                    ->label('کاربران سیستم')
-                    ->icon('heroicon-o-users'),   
+                    ->label('دسترسی و کاربران سیستم')
+                    ->icon('heroicon-o-users'),
                 NavigationGroup::make()
                     ->label('تنظیمات')
                     ->icon('heroicon-o-cog-6-tooth')
-                    ->collapsed(TRUE),                                           
+                    ->collapsed(TRUE),
                 NavigationGroup::make()
                     ->label('نقش‌ها و دسترسی‌ها')
                     ->icon('heroicon-o-adjustments-vertical'),
                 NavigationGroup::make()
-                    ->label('آمار')                    
+                    ->label('آمار')
                     ->icon('heroicon-o-presentation-chart-line'),
-            ])         
+            ])
             ->userMenuItems([
                 MenuItem::make()
                     ->label('پروفایل')
