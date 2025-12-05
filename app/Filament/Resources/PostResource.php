@@ -10,11 +10,12 @@ use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
+use Filament\Forms\Components\Hidden;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use AmidEsfahani\FilamentTinyEditor\TinyEditor;
 use CodeWithDennis\FilamentSelectTree\SelectTree;
-
+use Illuminate\Support\Facades\Auth;
 class PostResource extends Resource
 {
     protected static ?string $model = Post::class;
@@ -57,9 +58,9 @@ class PostResource extends Resource
                     ->searchable()
                     ->enableBranchNode()
                     ->relationship('categories', 'name', 'parent_id'),                             
-                Forms\Components\Select::make('user_id')
-                    ->relationship('user', 'name')
-                    ->required(),
+                Hidden::make('user_id')
+                ->default(fn () => Auth::id())
+                ->dehydrated(fn ($state) => filled($state)),
                 Forms\Components\TextInput::make('source_name')
                     ->maxLength(255)
                     ->default(null),
